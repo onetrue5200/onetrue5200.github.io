@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++ Primer | 后端揸fit日记</title><meta name="author" content="ONETRUE"><meta name="copyright" content="ONETRUE"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第1章 开始1.1 编写一个简单的C++程序1234int main()&#123;    return 0;&#125;  每个C++程序都包含一个或多个函数，有且只有一个 main函数，操作系统通过调用 main来运行C++程序。 1.2 初识输入输出iostream库提供IO机制，表示输入输出流。一个流就是一个字符序列，是从IO设备读出或者写入IO设备的。 标准的输入输出对象 标准库定义了4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer">
+<meta property="og:url" content="https://onetrue5200.github.io/cs/cpp-primer/index.html">
+<meta property="og:site_name" content="后端揸fit日记">
+<meta property="og:description" content="第1章 开始1.1 编写一个简单的C++程序1234int main()&#123;    return 0;&#125;  每个C++程序都包含一个或多个函数，有且只有一个 main函数，操作系统通过调用 main来运行C++程序。 1.2 初识输入输出iostream库提供IO机制，表示输入输出流。一个流就是一个字符序列，是从IO设备读出或者写入IO设备的。 标准的输入输出对象 标准库定义了4">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://onetrue5200.github.io/img/icon.png">
+<meta property="article:published_time" content="2024-04-09T04:19:24.186Z">
+<meta property="article:modified_time" content="2024-04-11T07:53:01.704Z">
+<meta property="article:author" content="ONETRUE">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://onetrue5200.github.io/img/icon.png"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="https://onetrue5200.github.io/cs/cpp-primer/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++ Primer',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-11 15:53:01'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="后端揸fit日记"><span class="site-name">后端揸fit日记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++ Primer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-09T04:19:24.186Z" title="发表于 2024-04-09 12:19:24">2024-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-11T07:53:01.704Z" title="更新于 2024-04-11 15:53:01">2024-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++ Primer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="第1章-开始"><a href="#第1章-开始" class="headerlink" title="第1章 开始"></a>第1章 开始</h2><h3 id="1-1-编写一个简单的C-程序"><a href="#1-1-编写一个简单的C-程序" class="headerlink" title="1.1 编写一个简单的C++程序"></a>1.1 编写一个简单的C++程序</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个C++程序都包含一个或多个函数，有且只有一个 <code>main</code>函数，操作系统通过调用 <code>main</code>来运行C++程序。</p>
+<h3 id="1-2-初识输入输出"><a href="#1-2-初识输入输出" class="headerlink" title="1.2 初识输入输出"></a>1.2 初识输入输出</h3><p><strong>iostream</strong>库提供IO机制，表示输入输出流。一个流就是一个字符序列，是从IO设备读出或者写入IO设备的。</p>
+<p><strong>标准的输入输出对象</strong></p>
+<p>标准库定义了4个IO对象，分别为cin，cout，cerr和clog。系统通常将程序所运行的窗口与这些对象关联起来，因此数据将从程序正在运行的窗口读入，也会将数据写到该窗口。</p>
+<h3 id="1-3-注释简介"><a href="#1-3-注释简介" class="headerlink" title="1.3 注释简介"></a>1.3 注释简介</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">多行注释，不可嵌套。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-控制流"><a href="#1-4-控制流" class="headerlink" title="1.4 控制流"></a>1.4 控制流</h3><p>while语句反复执行一段代码，直到给定条件为假时为止。</p>
+<p>for语句控制循环执行次数。</p>
+<p>if语句控制分支条件执行。</p>
+<h3 id="1-5-类简介"><a href="#1-5-类简介" class="headerlink" title="1.5 类简介"></a>1.5 类简介</h3><p>一个类定义了一个类型，以及与其关联的一组操作。</p>
+<h1 id="第一部分-C-基础"><a href="#第一部分-C-基础" class="headerlink" title="第一部分 C++基础"></a>第一部分 C++基础</h1><h2 id="第2章-变量和基本类型"><a href="#第2章-变量和基本类型" class="headerlink" title="第2章 变量和基本类型"></a>第2章 变量和基本类型</h2><h3 id="2-1-基本内置类型"><a href="#2-1-基本内置类型" class="headerlink" title="2.1 基本内置类型"></a>2.1 基本内置类型</h3><p><strong>算数类型</strong></p>
+<ul>
+<li>布尔<ul>
+<li>bool 取值为真或假</li>
+</ul>
+</li>
+<li>字符<ul>
+<li>char 确保能存放机器基本字符集</li>
+<li>wchar_t 确保能存放机器最大扩展字符集</li>
+<li>char16_t&#x2F;char32_t 为Unicode字符集服务</li>
+</ul>
+</li>
+<li>整型<ul>
+<li>shot</li>
+<li>int</li>
+<li>long</li>
+<li>long long</li>
+</ul>
+</li>
+<li>浮点型<ul>
+<li>float</li>
+<li>double</li>
+<li>long double</li>
+</ul>
+</li>
+</ul>
+<p>整型和char可以加 <code>unsigned</code>表示无符号类型。无符号类型要注意运算时的边界问题和自动转化问题。</p>
+<p><strong>字面值常量</strong></p>
+<p>字面值常量指形如42的直接书写的值。</p>
+<p>整型字面值可以写作十进制(20)、八进制(024)或十六进制(0x14)。整型字面值具体数据类型由它的值和符号决定，我们也可以通过前缀或后缀改变字面值的数据类型。</p>
+<p>浮点型字面值可以写作小数(3.14)或科学计数法(1e5)。</p>
+<p>由单引号括起来的一个字符称为char型字面值，双引号括起来的多个字符称为字符串型字面值。</p>
+<p>true和false是bool类型的字面值，nullptr是指针字面值。</p>
+<h3 id="2-2-变量"><a href="#2-2-变量" class="headerlink" title="2.2 变量"></a>2.2 变量</h3><p>变量定义的基本形式，首先类型说明符，后接变量名列表。</p>
+<p>变量在创建时需要初始化才能使用，只有全局变量才会被默认初始化。</p>
+<p>为了支持分离式编译，C++将声明和定义区分开，<strong>声明</strong>使得名字为程序所知，一个文件如果想使用别处定义的名字则必须包含对那个名字的声明。而<strong>定义</strong>负责创建于名字相关联的实体。<code>extern</code>关键字用于声明一个变量。</p>
+<blockquote>
+<p>变量只能被定义一次，但可以被多次声明。</p>
+</blockquote>
+<p>作用域是程序的一部分，在其中名字有其特定的含义。函数体外的的名字拥有全局作用域，在整个程序范围内都可以使用。花括号内的名字仅在该区域内可以访问，访问符合就近原则。</p>
+<h3 id="2-3-复合类型"><a href="#2-3-复合类型" class="headerlink" title="2.3 复合类型"></a>2.3 复合类型</h3><h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用是给对象起别名，在定义是必须初始化，把引用于初始值绑定在一起，引用只能绑定在对象上，不能绑定字面值。</p>
+<p>因为引用本身不是对象，所以不能定义引用的引用。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">1024</span>;  <span class="comment">// 定义对象</span></span><br><span class="line"><span class="type">int</span> &amp;r = i;  <span class="comment">// 定义引用</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><p>指针存储地址的对象，用于指向其他对象，无需在定义时初始化。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">1024</span>;</span><br><span class="line"><span class="type">int</span> *p = &amp;i;  <span class="comment">// 定义指针</span></span><br><span class="line">*p = <span class="number">2048</span>;  <span class="comment">// 解析指针</span></span><br></pre></td></tr></table></figure>
+
+<p>定义指针时最好初始化为 <code>nullptr</code>。</p>
+<h3 id="2-4-const限定符"><a href="#2-4-const限定符" class="headerlink" title="2.4 const限定符"></a>2.4 const限定符</h3><p>给变量加上 <code>const</code>限定符，该变量的值不能被改变。</p>
+<p>对常量的引用也必须是常量 <code>const int &amp;r = a</code>。引用常量可以引用非常量，这样通过非常量也可以修改值。</p>
+<p>指向常量的指针不能用于改变对象的值。想要存放常量对象的地址，只能使用指向常量的指针。</p>
+<p>指针是对象，允许把指针本身定为常量，表示地址不再改变。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *<span class="type">const</span> cp = &amp;a;  <span class="comment">// cp将一直指向a</span></span><br></pre></td></tr></table></figure>
+
+<p>常量表达式是指不会改变并且在编译过程就能得到计算结果的表达式。<code>constexpr</code>限定符可以验证变量的值是否是一个常量表达式。</p>
+<h3 id="处理类型"><a href="#处理类型" class="headerlink" title="处理类型"></a>处理类型</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">double</span> wages;  <span class="comment">// 类型别名</span></span><br><span class="line"><span class="keyword">using</span> base = <span class="type">int</span>;  <span class="comment">// 类型别名</span></span><br><span class="line"><span class="keyword">auto</span> i = <span class="number">0</span>, *p = &amp;i;  <span class="comment">// 类型推断</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">f</span>()) sum = x;  <span class="comment">// sum的类型是函数f的返回类型，编译器不计算f()的值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义数据结构"><a href="#自定义数据结构" class="headerlink" title="自定义数据结构"></a>自定义数据结构</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Sale</span> &#123;</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第3章-字符串、向量和数组"><a href="#第3章-字符串、向量和数组" class="headerlink" title="第3章 字符串、向量和数组"></a>第3章 字符串、向量和数组</h2><h2 id="第4章-表达式"><a href="#第4章-表达式" class="headerlink" title="第4章 表达式"></a>第4章 表达式</h2><h2 id="第5章-语句"><a href="#第5章-语句" class="headerlink" title="第5章 语句"></a>第5章 语句</h2><h2 id="第6章-函数"><a href="#第6章-函数" class="headerlink" title="第6章 函数"></a>第6章 函数</h2><h2 id="第7章-类"><a href="#第7章-类" class="headerlink" title="第7章 类"></a>第7章 类</h2><h1 id="第二部分-C-标准库"><a href="#第二部分-C-标准库" class="headerlink" title="第二部分 C++标准库"></a>第二部分 C++标准库</h1><h1 id="第三部分-类设计者工具"><a href="#第三部分-类设计者工具" class="headerlink" title="第三部分 类设计者工具"></a>第三部分 类设计者工具</h1><h1 id="第四部分-高级主题"><a href="#第四部分-高级主题" class="headerlink" title="第四部分 高级主题"></a>第四部分 高级主题</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://onetrue5200.github.io">ONETRUE</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://onetrue5200.github.io/cs/cpp-primer/">https://onetrue5200.github.io/cs/cpp-primer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://onetrue5200.github.io" target="_blank">后端揸fit日记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="/img/icon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/cs/c-basic/" title="C语言基础"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C语言基础</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ONETRUE</div><div class="author-info__description">大厂预备后端程序员</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">第1章 开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84C-%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 编写一个简单的C++程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%88%9D%E8%AF%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 初识输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%B3%A8%E9%87%8A%E7%AE%80%E4%BB%8B"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 注释简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 控制流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E7%B1%BB%E7%AE%80%E4%BB%8B"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 类简介</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-C-%E5%9F%BA%E7%A1%80"><span class="toc-number"></span> <span class="toc-text">第一部分 C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">第2章 变量和基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 基本内置类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 复合类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">1.3.2.</span> <span class="toc-text">指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-const%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 const限定符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">处理类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.</span> <span class="toc-text">自定义数据结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%90%91%E9%87%8F%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-number">2.</span> <span class="toc-text">第3章 字符串、向量和数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">第4章 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.</span> <span class="toc-text">第5章 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC6%E7%AB%A0-%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">第6章 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC7%E7%AB%A0-%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">第7章 类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-C-%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">第二部分 C++标准库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E7%B1%BB%E8%AE%BE%E8%AE%A1%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number"></span> <span class="toc-text">第三部分 类设计者工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98"><span class="toc-number"></span> <span class="toc-text">第四部分 高级主题</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/cs/cpp-primer/" title="C++ Primer">C++ Primer</a><time datetime="2024-04-09T04:19:24.186Z" title="发表于 2024-04-09 12:19:24">2024-04-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/cs/c-basic/" title="C语言基础">C语言基础</a><time datetime="2024-04-07T13:38:32.923Z" title="发表于 2024-04-07 21:38:32">2024-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/cs/linux-source-code/" title="linux源码趣读">linux源码趣读</a><time datetime="2024-04-01T15:10:07.825Z" title="发表于 2024-04-01 23:10:07">2024-04-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ONETRUE</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
